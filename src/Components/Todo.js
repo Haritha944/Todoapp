@@ -56,7 +56,7 @@ function Todo(){
         <h2>TODO APP</h2>
         <form className="form-group" onSubmit={handlesubmit}>
             <input type="text" value={todo} ref={inputRef} placeholder="Enter your todo" className="form-control" onChange={(event)=>setTodo(event.target.value)}/>
-            <button onClick={addTodo}>{editId ? 'EDIT':'ADD'}</button>
+            <button onClick={addTodo} >{editId ? 'EDIT':'ADD'}</button>
         </form>
         <div className="list">
             <ul>
@@ -68,7 +68,7 @@ function Todo(){
                         <span>
                             <IoMdDoneAll className="list-item-icons" id="complete" title="Complete"
                             onClick={()=>onComplete(to.id)}/>
-                            <FiEdit className="list-item-icons" id="edit" title="Edit" onClick={()=>onEdit(to.id)}/>
+                            {!to.status && ( <FiEdit className="list-item-icons" id="edit" title="Edit" onClick={()=>onEdit(to.id)} /> )}
                             <MdDelete  className="list-item-icons" id="delete" title="Delete" onClick={()=>onDelete(to.id)}/>
                         </span></li>
                     ))
